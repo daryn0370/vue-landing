@@ -10,8 +10,6 @@
         <p class="home__subtitle">
           {{ t("home_subtitle") }}
         </p>
-
-        <!-- language switcher -->
         <div class="home__language" aria-label="Select language">
           <button
             class="lang-btn"
