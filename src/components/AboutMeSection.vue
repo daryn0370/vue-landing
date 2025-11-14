@@ -1,10 +1,15 @@
 <template>
   <section id="about" class="about">
     <div class="about__container">
-      <h3>About me</h3>
-      <p>Hi, I'm Denis - UX/UI designer from Minsk. I'm interested in design and everything connected with it.</p>
-      <p>I'm studying at courses "Web and mobile design interfaces" in IT-Academy.</p>
-      <p>Ready to implement excellent projects with wonderful people.</p>
+      <h3>{{ t("about_h3") }}</h3>
+      <p>{{ t("about_p1") }}</p>
+      <p>{{ t("about_p2") }}</p>
+      <p>{{ t("about_p3") }}</p>
     </div>
   </section>
 </template>
+
+<script setup>
+import { inject } from "vue"
+const t = inject("t")
+</script>

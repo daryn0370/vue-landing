@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container">
       <button
-        class="nav-toggle"
+        :class="['nav-toggle', { 'nav-toggle--active': isMenuOpen }]"
         :aria-expanded="isMenuOpen"
         aria-label="Toggle navigation"
         @click="toggleMenu"
@@ -20,7 +20,7 @@
               :class="{ active: activeSection === item.id }"
               @click="handleNavClick(item.id)"
             >
-              {{ item.label }}
+              {{ t(`nav_${item.id}`) }}
             </a>
           </li>
         </ul>
@@ -36,14 +36,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, inject } from 'vue'
+
+const t = inject("t")
 
 const navItems = [
-  { id: 'home', label: 'Home', link: '#home' },
-  { id: 'about', label: 'About me', link: '#about' },
-  { id: 'skills', label: 'Skills', link: '#skills' },
-  { id: 'portfolio', label: 'Portfolio', link: '#portfolio' },
-  { id: 'contacts', label: 'Contacts', link: '#contacts' },
+  { id: "home", label: "Home", link: "#home" },
+  { id: "about", label: "About me", link: "#about" },
+  { id: "skills", label: "Skills", link: "#skills" },
+  { id: "portfolio", label: "Portfolio", link: "#portfolio" },
+  { id: "contacts", label: "Contacts", link: "#contacts" }
 ]
 
 const activeSection = ref('home')

@@ -1,11 +1,15 @@
 <template>
   <section id="contacts" class="contacts">
     <div class="contacts__container">
-      <h3>Contacts</h3>
+      <h3>{{ t("contacts_h3") }}</h3>
+
       <p class="contacts__description">
-        Want to know more or just chat? You are welcome!
+        {{ t("contacts_desc") }}
       </p>
-      <button class="contacts__button">Send message</button>
+
+      <button class="contacts__button">
+        {{ t("contacts_btn") }}
+      </button>
 
       <div class="contacts__socials">
         <a
@@ -20,12 +24,15 @@
         </a>
       </div>
 
-      <p class="contacts__note">Like me on LinkedIn, Instagram, Behance, Dribbble</p>
+      <p class="contacts__note">{{ t("contacts_note") }}</p>
     </div>
   </section>
 </template>
 
 <script setup>
+import { inject } from "vue"
+const t = inject("t")
+
 const socials = [
   {
     label: 'LinkedIn',

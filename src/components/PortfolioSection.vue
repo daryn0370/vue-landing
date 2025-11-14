@@ -1,7 +1,7 @@
 <template>
   <section id="portfolio" class="portfolio">
     <div class="portfolio__container">
-      <h3>Portfolio</h3>
+      <h3>{{ t("portfolio_h3") }}</h3>
 
       <div class="portfolio__list">
         <article
@@ -15,9 +15,7 @@
             class="portfolio-card__image"
             loading="lazy"
           />
-          <p class="portfolio-card__title">
-            {{ project.title }}
-          </p>
+          <p class="portfolio-card__title">{{ project.title }}</p>
         </article>
       </div>
     </div>
@@ -25,6 +23,9 @@
 </template>
 
 <script setup>
+import { inject } from "vue"
+const t = inject("t")
+
 const projects = [
   {
     title: 'Online fashion store - Homepage',
